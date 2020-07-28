@@ -36,6 +36,11 @@ namespace first_stage
                 }
             };
 
+            mySchool.Courses.Add(new Course() {
+                Name = "Programación Orientada a Objetos - Platzi",
+                WorkdayType = WorkdayTypes.Morning,
+            });
+
             mySchool.printCourses();
         }
     }
