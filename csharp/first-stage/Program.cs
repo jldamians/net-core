@@ -38,18 +38,7 @@ namespace first_stage
                 }
             };
 
-            print(mySchool.Courses);
-        }
-
-        private static void print(Course[] courses)
-        {
-            WriteLine("===============");
-            WriteLine("Lista de Cursos");
-            WriteLine("===============");
-            foreach (var course in courses)
-            {
-                course.printSelf();
-            }
+            mySchool.printCourses();
         }
     }
 }

@@ -1,3 +1,4 @@
+using static System.Console;
 namespace CoreSchool.Entities
 {
     class School
@@ -41,6 +42,25 @@ namespace CoreSchool.Entities
         public override string ToString()
         {
             return $"School name: \"{this.Name}\" {System.Environment.NewLine}School type: {this.SchoolType} \nCountry: {this.Country} \nCity: {this.City}";
+        }
+
+        public void printCourses() 
+        {
+            WriteLine("===============");
+            WriteLine("Lista de Cursos");
+            WriteLine("===============");
+
+            if (this.Courses != null)
+            {
+                foreach (var course in this.Courses)
+                {
+                    course.printSelf();
+                }
+            }
+            else
+            {
+                WriteLine("No hay cursos asociados a la escuela");
+            }
         }
     }
 }
