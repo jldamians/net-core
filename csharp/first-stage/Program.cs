@@ -18,7 +18,7 @@ namespace first_stage
             /*Console.WriteLine("La escuela {0} fue creada el año {1}", mySchool.Name, mySchool.FoundationYear);
             Console.WriteLine(mySchool.ToString());*/
 
-            var myCourses = new Course[4] {
+            Course[] myCourses = {
                 new Course() {
                     Name = "Patrones de Diseño de Software - Platzi",
                     WorkdayType = WorkdayTypes.Afternoon,
