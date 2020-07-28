@@ -1,5 +1,6 @@
-﻿using System;
-using CoreSchool.Entities;
+﻿using CoreSchool.Entities;
+
+using static System.Console;
 
 namespace first_stage
 {
@@ -15,8 +16,8 @@ namespace first_stage
                 country: "Perú"
             );
 
-            /*Console.WriteLine("La escuela {0} fue creada el año {1}", mySchool.Name, mySchool.FoundationYear);
-            Console.WriteLine(mySchool.ToString());*/
+            /*WriteLine("La escuela {0} fue creada el año {1}", mySchool.Name, mySchool.FoundationYear);
+            WriteLine(mySchool.ToString());*/
 
             mySchool.Courses = new Course[] {
                 new Course() {
@@ -42,9 +43,9 @@ namespace first_stage
 
         private static void print(Course[] courses)
         {
-            Console.WriteLine("===============");
-            Console.WriteLine("Lista de Cursos");
-            Console.WriteLine("===============");
+            WriteLine("===============");
+            WriteLine("Lista de Cursos");
+            WriteLine("===============");
             foreach (var course in courses)
             {
                 course.printSelf();
