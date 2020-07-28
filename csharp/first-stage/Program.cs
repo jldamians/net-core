@@ -1,7 +1,5 @@
-﻿using CoreSchool.Entities;
-
-using static System.Console;
-
+﻿using System.Collections.Generic;
+using CoreSchool.Entities;
 namespace first_stage
 {
     class Program
@@ -19,7 +17,7 @@ namespace first_stage
             /*WriteLine("La escuela {0} fue creada el año {1}", mySchool.Name, mySchool.FoundationYear);
             WriteLine(mySchool.ToString());*/
 
-            mySchool.Courses = new Course[] {
+            mySchool.Courses = new List<Course>() {
                 new Course() {
                     Name = "Patrones de Diseño de Software - Platzi",
                     WorkdayType = WorkdayTypes.Afternoon,
