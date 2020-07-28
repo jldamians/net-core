@@ -18,21 +18,23 @@ namespace first_stage
             /*Console.WriteLine("La escuela {0} fue creada el año {1}", mySchool.Name, mySchool.FoundationYear);
             Console.WriteLine(mySchool.ToString());*/
 
-            var myCourses = new Course[3];
-
-            myCourses[0] = new Course() {
-                Name = "Patrones de Diseño de Software - Platzi",
-                WorkdayType = WorkdayTypes.Afternoon,
-            };
-
-            myCourses[1] = new Course() {
-                Name = "Arquitectura de Software - Platzi",
-                WorkdayType = WorkdayTypes.Afternoon,
-            };
-
-            myCourses[2] = new Course() {
-                Name = "Principios SOLID - Platzi",
-                WorkdayType = WorkdayTypes.Morning,
+            var myCourses = new Course[4] {
+                new Course() {
+                    Name = "Patrones de Diseño de Software - Platzi",
+                    WorkdayType = WorkdayTypes.Afternoon,
+                },
+                new Course() {
+                    Name = "Arquitectura de Software - Platzi",
+                    WorkdayType = WorkdayTypes.Afternoon,
+                },
+                new Course {
+                    Name = "Principios SOLID - Platzi",
+                    WorkdayType = WorkdayTypes.Morning,
+                },
+                new Course {
+                    Name = "NodeJS + Puppeteer - Platzi",
+                    WorkdayType = WorkdayTypes.Morning,
+                }
             };
             
             printCoursesWithWhileLoop(myCourses);
