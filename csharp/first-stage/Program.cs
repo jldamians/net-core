@@ -18,7 +18,7 @@ namespace first_stage
             /*Console.WriteLine("La escuela {0} fue creada el año {1}", mySchool.Name, mySchool.FoundationYear);
             Console.WriteLine(mySchool.ToString());*/
 
-            Course[] myCourses = {
+            mySchool.Courses = new Course[] {
                 new Course() {
                     Name = "Patrones de Diseño de Software - Platzi",
                     WorkdayType = WorkdayTypes.Afternoon,
@@ -36,60 +36,18 @@ namespace first_stage
                     WorkdayType = WorkdayTypes.Morning,
                 }
             };
-            
-            printCoursesWithWhileLoop(myCourses);
-            printCoursesWithDoWhileLoop(myCourses);
-            printCoursesWithForLoop(myCourses);
-            printCoursesWithForEachLoop(myCourses);
+
+            print(mySchool.Courses);
         }
 
-        private static void printCoursesWithForEachLoop(Course[] myCourses)
+        private static void print(Course[] courses)
         {
-            Console.WriteLine("Lista de Cursos (for each loop)");
-            Console.WriteLine("===============================");
-
-            foreach (var course in myCourses)
+            Console.WriteLine("===============");
+            Console.WriteLine("Lista de Cursos");
+            Console.WriteLine("===============");
+            foreach (var course in courses)
             {
                 course.printSelf();
-            }
-        }
-
-        private static void printCoursesWithForLoop(Course[] myCourses)
-        {
-            Console.WriteLine("Lista de Cursos (for loop)");
-            Console.WriteLine("==========================");
-
-            for (int i = 0; i < myCourses.Length; i++)
-            {
-                myCourses[i].printSelf();
-            }
-        }
-
-        private static void printCoursesWithDoWhileLoop(Course[] myCourses)
-        {
-            int count = 0;
-
-            Console.WriteLine("Lista de Cursos (do while loop)");
-            Console.WriteLine("===============================");
-
-            do
-            {
-                myCourses[count].printSelf();
-                count += 1;
-            } while (count < myCourses.Length);
-        }
-
-        private static void printCoursesWithWhileLoop(Course[] myCourses)
-        {
-            int count = 0;
-
-            Console.WriteLine("Lista de Cursos (while loop)");
-            Console.WriteLine("============================");
-
-            while (count < myCourses.Length)
-            {
-                myCourses[count].printSelf();
-                count += 1;
             }
         }
     }

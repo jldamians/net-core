@@ -7,19 +7,16 @@ namespace CoreSchool.Entities
             get { return "Copy: " + this.name; } 
             set { this.name = value.ToUpper(); }
         }
-
         public int FoundationYear { get; set; }
-
         public string Country { get; set; }
-
         private string city;
         public string City
         {
             get { return city; }
             set { city = value; }
         }
-
         public SchoolTypes SchoolType { get; set; }
+        public Course[] Courses { get; set; }
         
         /*public School(string name, int foundationYear) {
             this.Name = name;
