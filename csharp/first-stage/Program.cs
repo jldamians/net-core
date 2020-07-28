@@ -41,6 +41,25 @@ namespace first_stage
                 WorkdayType = WorkdayTypes.Morning,
             });
 
+            mySchool.Courses.AddRange(new List<Course>() {
+                new Course {
+                    Name = "Angular",
+                    WorkdayType = WorkdayTypes.Afternoon,
+                },
+                new Course {
+                    Name = "React",
+                    WorkdayType = WorkdayTypes.Afternoon,
+                },
+                new Course {
+                    Name = "Vue",
+                    WorkdayType = WorkdayTypes.Afternoon,
+                },
+                new Course {
+                    Name = "PHP",
+                    WorkdayType = WorkdayTypes.Afternoon,
+                }
+            });
+
             mySchool.printCourses();
         }
     }
