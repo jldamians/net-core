@@ -14,7 +14,7 @@ namespace CoreSchool.Entities
 
         public void printSelf() {
             string message;
-            message = $"[{this.UUID}] {this.Name}";
+            message = $"[{this.GetHashCode()}][{this.UUID}] {this.Name}";
             Console.WriteLine(message);
         }
     }

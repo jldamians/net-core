@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using CoreSchool.Entities;
 namespace first_stage
 {
@@ -60,6 +61,19 @@ namespace first_stage
                 }
             });
 
+            var newCourse = new Course() {
+                Name = "Fundamentos de SQL Server",
+                WorkdayType = WorkdayTypes.Night,
+            };
+
+            Console.WriteLine($"Agregando objeto con hash: {newCourse.GetHashCode()}");
+            mySchool.Courses.Add(newCourse);
+
+            mySchool.printCourses();
+
+            Console.WriteLine($"Removiendo objeto con hash: {newCourse.GetHashCode()}");
+            mySchool.Courses.Remove(newCourse);
+            
             mySchool.printCourses();
         }
     }
