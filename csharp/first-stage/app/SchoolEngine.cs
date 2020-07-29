@@ -61,12 +61,13 @@ namespace CoreSchool
                 WorkdayType = workdayType 
             };
 
-            newCourse.SetStudents(
-                this.GetRandomStudents(new Random().Next(5, 10))
-            );
-            newCourse.SetSubjects(
-                this.GetRandomSubjects(new Random().Next(5, 8))
-            );
+            var subjects = this.GetRandomSubjects();
+            var students = this.GetRandomStudents();
+
+            this.AddRandomEvaluations(students, subjects);
+
+            newCourse.SetSubjects(subjects);
+            newCourse.SetStudents(students);
 
             return newCourse;
         }
@@ -120,6 +121,27 @@ namespace CoreSchool
                 .OrderBy((student) => student.UUID)
                 .Take(quantity)
                 .ToList();
+        }
+
+        private List<Student> AddRandomEvaluations(List<Student> students, List<Subject> subjects)
+        {
+            foreach (var student in students)
+            {
+                foreach (var subject in subjects)
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        student.Evaluations.Add(new Evaluation() {
+                            Subject = subject,
+                            Name = $"{subject.Name} [#{i + 1}]",
+                            Score = (float)(5 * new Random().NextDouble()),
+                            Student = student,
+                        });
+                    }                    
+                }
+            }
+
+            return students;
         }
 
         public void PrintCourses()
