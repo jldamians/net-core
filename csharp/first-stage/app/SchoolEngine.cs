@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using CoreSchool.Entities;
+using System;
 
 namespace CoreSchool 
 {
@@ -23,80 +24,102 @@ namespace CoreSchool
             );
 
             LoadCourses();
-            LoadSubjects();
-            LoadStudents();
-            LoadEvaluations();
+            //LoadEvaluations();
         }
 
         private void LoadCourses()
         {
-            this.School.Courses = new List<Course>() {
-                new Course() {
-                    Name = "Design Patterns - Platzi",
-                    WorkdayType = WorkdayTypes.Morning,
-                },
-                new Course() {
-                    Name = "Domain Drive Design - Platzi",
-                    WorkdayType = WorkdayTypes.Afternoon,
-                },
-                new Course {
-                    Name = "SOLID - Platzi",
-                    WorkdayType = WorkdayTypes.Night,
-                },
-                new Course {
-                    Name = "POO in C# - Platzi",
-                    WorkdayType = WorkdayTypes.Morning,
-                },
-                new Course {
-                    Name = "MVC in PHP - Platzi",
-                    WorkdayType = WorkdayTypes.Afternoon,
-                },
-            };
+            this.School.SetCourses(new List<Course>() {
+                this.GetNewRandomCourse(WorkdayTypes.Morning),
+                this.GetNewRandomCourse(WorkdayTypes.Afternoon),
+                this.GetNewRandomCourse(WorkdayTypes.Morning),
+                this.GetNewRandomCourse(WorkdayTypes.Afternoon),
+            });
         }
 
-        private void LoadStudents()
-        {
-            
-        }
-
-        private void LoadSubjects()
-        {
-            foreach (var course in this.School.Courses)
-            {
-                course.Subjects.AddRange(new List<Subject>() {
-                    new Subject { Name = "Matemática I" },
-                    new Subject { Name = "Comunicaión Integral" },
-                    new Subject { Name = "Educación Ambiental" },
-                    new Subject { Name = "Educación Física" },
-                });
-            }
-        }
-
-        private void LoadEvaluations()
-        {
-            foreach (var course in this.School.Courses)
-            {
-                course.Students.AddRange(this.GetRandomStudents());
-            }
-        }
-        private IEnumerable<Student> GetRandomStudents()
+        private Course GetNewRandomCourse(WorkdayTypes workdayType)
         {
             string[] names = {
-                "Luis", "Alberto", "Carlos", "Pedro"
+                "101", 
+                "201", 
+                "301", 
+                "401",
+                "501",
+                "601",
+                "701",
+                "801",
+                "901",
+                "102",
+                "202",
+                "302",
+                "402",
+                "502",
+            };
+
+            var newCourse = new Course() { 
+                Name = names[new Random().Next(names.Length)], 
+                WorkdayType = workdayType 
+            };
+
+            newCourse.SetStudents(
+                this.GetRandomStudents(new Random().Next(5, 10))
+            );
+            newCourse.SetSubjects(
+                this.GetRandomSubjects(new Random().Next(5, 8))
+            );
+
+            return newCourse;
+        }
+
+        private List<Student> GetRandomStudents(int quantity = 5)
+        {
+            string[] names = {
+                "Luis", "Alberto", "Carlos", "Pedro", "Gustavo", "Andres"
             };
             string[] firstSurnames = {
-                "Damian", "Saavedra", "Chavez", "Tananta"
+                "Damian", "Saavedra", "Chavez", "Tananta", "Artica", "Caceres"
             };
             string[] secondSurnames = {
-                "Chavez", "Ayala", "Guevara", "Mendieta"
+                "Chavez", "Ayala", "Guevara", "Mendieta", "Garcia", "Salcedo"
             };
 
             var students = from name in names
                            from first in firstSurnames
                            from second in secondSurnames
                            select new Student { Name = $"{name} {first} {second}" };
+            
+            return students
+                .OrderBy((student) => student.UUID)
+                .Take(quantity)
+                .ToList();
+        }
 
-            return students;
+        private List<Subject> GetRandomSubjects(int quantity = 5)
+        {
+            string[] names = {
+                "Matemáticas", 
+                "Comunicación", 
+                "Religión", 
+                "Ecología", 
+                "Física", 
+                "Química",
+                "Computación",
+                "Electricidad",
+                "Cálculo",
+                "Trigonometría",
+                "Álgebra",
+                "Natación",
+                "Ofimática",
+                "Ciencias Sociales",
+            };
+
+            var subjects = from name in names
+                           select new Subject { Name = name };
+            
+            return subjects
+                .OrderBy((student) => student.UUID)
+                .Take(quantity)
+                .ToList();
         }
 
         public void PrintCourses()

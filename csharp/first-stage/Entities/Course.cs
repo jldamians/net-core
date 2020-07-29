@@ -15,10 +15,19 @@ namespace CoreSchool.Entities
             this.UUID = Guid.NewGuid().ToString();
         }
 
-        public void printSelf() {
+        public void PrintSelf() {
             string message;
             message = $"[{this.GetHashCode()}][{this.UUID}] {this.Name}";
             Console.WriteLine(message);
+        }
+
+        public void SetSubjects(List<Subject> subjects)
+        {
+            this.Subjects = subjects;
+        }
+        public void SetStudents(List<Student> students)
+        {
+            this.Students = students;
         }
     }
 }

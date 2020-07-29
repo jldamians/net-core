@@ -42,7 +42,7 @@ namespace CoreSchool.Entities
             {
                 foreach (var course in this.Courses)
                 {
-                    course.printSelf();
+                    course.PrintSelf();
                 }
             }
             else
@@ -50,16 +50,10 @@ namespace CoreSchool.Entities
                 WriteLine("No hay cursos asociados a la escuela");
             }
         }
-        public void removeCourseByObject(Course course)
-        {
-            this.Courses.Remove(course);
-        }
 
-        public void RemoveCourseByWorkday(WorkdayTypes workday) 
+        public void SetCourses(List<Course> courses)
         {
-            this.Courses.RemoveAll((course) => {
-                return course.WorkdayType == workday;
-            });
+            this.Courses = courses;
         }
     }
 }
