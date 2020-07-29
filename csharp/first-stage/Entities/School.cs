@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using static System.Console;
 namespace CoreSchool.Entities
 {
-    class School
+    public class School
     {
         private string name;
         public string Name { 
@@ -45,7 +45,7 @@ namespace CoreSchool.Entities
             return $"School name: \"{this.Name}\" {System.Environment.NewLine}School type: {this.SchoolType} \nCountry: {this.Country} \nCity: {this.City}";
         }
 
-        public void printCourses() 
+        public void PrintCourses() 
         {
             WriteLine("===============");
             WriteLine("Lista de Cursos");
