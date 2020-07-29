@@ -57,7 +57,7 @@ namespace first_stage
                 },
                 new Course {
                     Name = "PHP",
-                    WorkdayType = WorkdayTypes.Afternoon,
+                    WorkdayType = WorkdayTypes.Night,
                 }
             });
 
@@ -66,14 +66,9 @@ namespace first_stage
                 WorkdayType = WorkdayTypes.Night,
             };
 
-            Console.WriteLine($"Agregando objeto con hash: {newCourse.GetHashCode()}");
             mySchool.Courses.Add(newCourse);
-
             mySchool.printCourses();
-
-            Console.WriteLine($"Removiendo objeto con hash: {newCourse.GetHashCode()}");
-            mySchool.removeCourseByObject(newCourse);
-
+            mySchool.RemoveCourseByWorkday(WorkdayTypes.Night);
             mySchool.printCourses();
         }
     }

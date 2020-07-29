@@ -67,5 +67,12 @@ namespace CoreSchool.Entities
         {
             this.Courses.Remove(course);
         }
+
+        public void RemoveCourseByWorkday(WorkdayTypes workday) 
+        {
+            this.Courses.RemoveAll((course) => {
+                return course.WorkdayType == workday;
+            });
+        }
     }
 }
