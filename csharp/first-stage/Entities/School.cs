@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using static System.Console;
 using CoreSchool.Utils;
@@ -5,26 +6,13 @@ namespace CoreSchool.Entities
 {
     public class School
     {
-        private string name;
-        public string Name { 
-            get { return "Copy: " + this.name; } 
-            set { this.name = value.ToUpper(); }
-        }
+        public string UUID { get; set; } = Guid.NewGuid().ToString();
+        public string Name { get; set; }
         public int FoundationYear { get; set; }
         public string Country { get; set; }
-        private string city;
-        public string City
-        {
-            get { return city; }
-            set { city = value; }
-        }
+        public string City { get; set; }
         public SchoolTypes SchoolType { get; set; }
         public List<Course> Courses { get; set; }
-        
-        /*public School(string name, int foundationYear) {
-            this.Name = name;
-            this.FoundationYear = foundationYear;
-        }*/
 
         public School(string name, int foundationYear) => (Name, FoundationYear) = (name, foundationYear);
 

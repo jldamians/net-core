@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace CoreSchool.Entities
 {
@@ -7,6 +8,8 @@ namespace CoreSchool.Entities
         public string UUID { get; private set; }
         public string Name { get; set; }
         public WorkdayTypes WorkdayType { get; set; }
+        public List<Subject> Subjects { get; set; }
+        public List<Student> Students { get; set; }
 
         public Course() {
             this.UUID = Guid.NewGuid().ToString();
