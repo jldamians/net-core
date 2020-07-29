@@ -72,8 +72,8 @@ namespace first_stage
             mySchool.printCourses();
 
             Console.WriteLine($"Removiendo objeto con hash: {newCourse.GetHashCode()}");
-            mySchool.Courses.Remove(newCourse);
-            
+            mySchool.removeCourseByObject(newCourse);
+
             mySchool.printCourses();
         }
     }

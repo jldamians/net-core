@@ -63,5 +63,9 @@ namespace CoreSchool.Entities
                 WriteLine("No hay cursos asociados a la escuela");
             }
         }
+        public void removeCourseByObject(Course course)
+        {
+            this.Courses.Remove(course);
+        }
     }
 }
