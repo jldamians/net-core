@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using static System.Console;
+using CoreSchool.Utils;
 namespace CoreSchool.Entities
 {
     public class School
@@ -47,9 +48,7 @@ namespace CoreSchool.Entities
 
         public void PrintCourses() 
         {
-            WriteLine("===============");
-            WriteLine("Lista de Cursos");
-            WriteLine("===============");
+            Printer.PrintTitle("Lista de Cursos");
 
             if (this.Courses != null)
             {

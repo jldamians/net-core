@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using CoreSchool;
-using CoreSchool.Entities;
+﻿using CoreSchool;
 namespace first_stage
 {
     class Program
